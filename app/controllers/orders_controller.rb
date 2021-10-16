@@ -1,8 +1,25 @@
 class OrdersController < ApplicationController
 
   def show
-    @order = Order.find(params[:id])
-    @order_items = LineItem.where(order_id: @order.id)
+
+    if params[:id]
+      @order = Order.find(params[:id])
+      @line_items = Order.find(params[:id]).line_items  
+      # @products =  LineItem.find(params[:id]).products    
+      # @products = Product.joins(:line_items).where(>>>>>LINE_ITEMS.ID<<<<<)
+      # @products = Order.find(params[:id]).line_items.product
+      # @products = LineItem.find(params[:id]).product
+      # @products = Product.joins(:line_items).where(line_items.order_id: @order.id)
+    end
+
+    # *********TODO Using joins method is failed. These make join queries but can't add prod fields into LineItem Obj
+    # *********TODO Try it again later...
+    # @order_items = Product.joins(:line_items).where(order_id: @order.id)
+    # @order_items = LineItem.joins(:product).includes(:product).where(order_id: @order.id)
+    # @products = LineItem.joins(:product).select("products.*, line_items.*").where(order_id: @order.id)
+    # @order_items = LineItem.select("line_items.*, products.image").joins(:product).where(order_id: @order.id)
+    # @order_items = LineItem.select("line_items.*, products.image").find(order_id: @order.id).product
+
   end
 
   def create
