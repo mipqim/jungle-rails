@@ -23,7 +23,6 @@
       </thead>
       <tbody>
         <% @order.line_items.each do |line_item| %>
-          <%#= render 'item', product: item[:product], quantity: item[:quantity].to_i %-->
 
 
 
@@ -46,7 +45,7 @@
             <%= humanized_money_with_symbol (line_item.product.price * line_item.quantity) %>
           </td>
         </tr>
-
+       
 
 
         <% end %>
