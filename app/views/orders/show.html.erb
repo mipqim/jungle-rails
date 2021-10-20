@@ -5,10 +5,9 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
-    <h4><%= humanized_money_with_symbol @order.total_cents%></h4>
-    <h4><%= @order.email %></h4>
-    <h4><%= @order.line_items.inspect() %></h4>    
+    <h4>Thank you for your order!</h4></br>
+    <h4>Order Email : <%= @order.email %></h4>
+    <h4>Order Total : <%= humanized_money_with_symbol @order.total %></h4>    
   </div>
 
   <div class="panel panel-default items">
@@ -23,31 +22,7 @@
       </thead>
       <tbody>
         <% @order.line_items.each do |line_item| %>
-
-
-
-          <tr>
-          <td>
-            <%= image_tag line_item.product.image.tiny %>
-          </td>
-          <td>
-            <h4><%= line_item.product.name %></h4>
-            <br>
-            <p><%= line_item.product.description %></p>
-          </td>
-          <td>
-            <%= humanized_money_with_symbol line_item.product.price %>
-          </td>
-          <td>
-            <%= line_item.quantity %>
-          </td>
-          <td>
-            <%= humanized_money_with_symbol (line_item.product.price * line_item.quantity) %>
-          </td>
-        </tr>
-       
-
-
+          <%= render 'order', product: line_item.product, quantity: line_item.quantity.to_i %>
         <% end %>
       </tbody>
       <tfoot>
@@ -56,7 +31,7 @@
             TOTAL:
           </th>
           <th>
-            <%= humanized_money_with_symbol (cart_subtotal_cents / 100.0) %>
+            <%= humanized_money_with_symbol @order.total %>
           </th>
         </tr>
       </tfoot>
