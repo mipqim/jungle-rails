@@ -1,4 +1,9 @@
 class Admin::ProductsController < ApplicationController
+  http_basic_authenticate_with name: "mipqim", password: "secret", except: :index_tmp
+
+  def index_tmp
+    render plain: "Everyone can see me!"
+  end
 
   def index
     @products = Product.order(id: :desc).all
