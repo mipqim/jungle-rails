@@ -1,3 +1,20 @@
-<h1>Admin::Dashboard#show</h1>
-<p><%= @product_count %></p>
-<p><%= @category_count %></p>
+<section class="admin-dashboard-show">
+
+  <header class="page-header">
+    <h1>Admin &raquo; Dashboard</h1>
+  </header>
+
+  <div class="well">
+    <h4>Product count : <%= link_to @product_count, '/admin/products' %></h4>
+    <h4>Category count : <%= @category_count %></h4>
+    <ul>
+    <% @product_count_category.each do |category_in_product| %>
+     <li><%= link_to category_in_product[0].name + ' (' + category_in_product[1].to_s + ')', '/categories/'+category_in_product[0].id.to_s%></li>          
+    <% end %>
+    </ul>    
+  </div>
+
+  <!--<div class="panel panel-default dashboard">
+  </div>-->
+
+</section>

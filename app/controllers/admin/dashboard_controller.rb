@@ -8,5 +8,8 @@ class Admin::DashboardController < ApplicationController
   def show
     @product_count = Product.count
     @category_count = Category.count
+
+    #select count(*) from products group by category_id / return [category, count]
+    @product_count_category = Product.group(:category).count 
   end
 end
