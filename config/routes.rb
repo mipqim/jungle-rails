@@ -6,10 +6,15 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :about, only: [:index]
 
+  resources :signup, only: [:index]
+
   resource :cart, only: [:show] do
     post   :add_item
     post   :remove_item
   end
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
   resources :orders, only: [:create, :show]
 
