@@ -13,16 +13,14 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th colspan="2">Product</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th>Qty Remaining</th>
-          <th></th>
+          <th>Categories</th>
+          <th>Total Products</th>
         </tr>
       </thead>
       <tbody>
-        <%=# render @products 
-        %>
+        <% @product_count_category.each do |category_in_product| %>
+          <%= render 'category', name: category_in_product[0].name, count: category_in_product[1].to_s %>                
+        <% end %> 
       </tbody>
     </table>
 
