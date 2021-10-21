@@ -14,13 +14,19 @@
       <thead>
         <tr>
           <th>Categories</th>
-          <th>Total Products</th>
+          <!--<th>Total Products</th>-->
         </tr>
       </thead>
       <tbody>
-        <% @product_count_category.each do |category_in_product| %>
-          <%= render 'category', name: category_in_product[0].name, count: category_in_product[1].to_s %>                
-        <% end %> 
+         <%# @product_count_category.each do |category_in_product| 
+          %>
+           <%=# render 'category', name: category_in_product[0].name, count: category_in_product[1].to_s 
+           %>                
+         <%# end 
+         %> 
+        <% @categories.each do |category_in_product| %>
+          <%= render 'category', name: category_in_product.name %>                
+        <% end %>         
       </tbody>
     </table>
 
