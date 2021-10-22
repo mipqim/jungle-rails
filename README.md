@@ -5,8 +5,8 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 ## Screenshots
 !["main page"](https://github.com/mipqim/jungle-rails/blob/master/app/assets/images/main.png)
 !["detail page"](https://github.com/mipqim/jungle-rails/blob/master/app/assets/images/detail.png)
-!["main page"](https://github.com/mipqim/jungle-rails/blob/master/app/assets/images/main.png)
 !["cart page"](https://github.com/mipqim/jungle-rails/blob/master/app/assets/images/cart.png)
+!["admin page"](https://github.com/mipqim/jungle-rails/blob/master/app/assets/images/admin_product.png)
 
 ## Additional Steps for Apple M1 Machines
 
