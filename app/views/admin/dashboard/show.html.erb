@@ -8,9 +8,9 @@
     <h4>Product count : <%= link_to @product_count, '/admin/products' %></h4>
     <h4>Category count : <%= @category_count %></h4>
     <ul>
-    <% @product_count_category.each do |category_in_product| %>
-     <li><%= link_to category_in_product[0].name + ' (' + category_in_product[1].to_s + ')', '/categories/'+category_in_product[0].id.to_s%></li>          
-    <% end %>
+    <% @categories.each do |category| %>
+      <li><%= link_to category.name + ' (' + Product.where(category_id:category.id).count.to_s + ')', '/categories/' + category.id.to_s %></li>          
+    <% end %>    
     </ul>    
   </div>
 

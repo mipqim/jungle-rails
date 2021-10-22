@@ -7,6 +7,7 @@ class Admin::DashboardController < ApplicationController
     @category_count = Category.count
 
     #select count(*) from products group by category_id / return [category, count]
-    @product_count_category = Product.group(:category).count 
+    #@product_count_category = Product.group(:category).count 
+    @categories = Category.all
   end
 end
