@@ -14,6 +14,8 @@ class Admin::CategoriesController < ApplicationController
     @categories = Category.all
     ## AND remove count on the view
 
+    #Select a.name, IFNULL(b.cnt, 0) as cnt from category a left join (select count(*) as cnt, category_id from product group by category_id) b on a.id = b.category_id;
+
 
   end
 

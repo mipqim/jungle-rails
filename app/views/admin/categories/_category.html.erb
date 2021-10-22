@@ -2,8 +2,8 @@
     <td>
       <%= name %>
     </td>
-   <!--<td>
-      <%#= count 
+   <td>
+      <%= Product.where(category_id:id).count 
       %>
-    </td>--> 
+    </td>
   </tr>
